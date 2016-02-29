@@ -14,7 +14,7 @@ module.exports = function(Meteor) {
 			return new ReactiveObserver(object);
 		
 		//Check object is obsevable
-		if (object && (!object.on || !object.off))
+		if (object && !object.listeners)
 			throw new Exception('Object is not observable');
 		
 		//Tracker dependencies
@@ -33,10 +33,11 @@ module.exports = function(Meteor) {
 				//Add a dependency
 				dep.depend();
 
-			if (key)
-				return root[key];
-			else
+			if(arguments.length === 0)
 				return root;
+			else
+				return root[key];
+				
 		};
 
 		// Settter for root object and properties
@@ -46,12 +47,14 @@ module.exports = function(Meteor) {
 			if(arguments.length === 1)
 			{
 				//Unobserve object
-				root && root.off(listener);
+				root && root.removeListener('change',listener);
 				//Set root object
 				root = arguments[0];
 				//Check object is obsevable
-				if (root && (!root.on || !root.off))
+				if (root && !object.listeners)
 					throw new Exception('Object is not observable');
+				//Add listener
+				root.addListener('change',listener);
 				//And fire dependency
 				dep.changed();
 			} else if (root) {
