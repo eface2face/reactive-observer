@@ -1,7 +1,7 @@
 {
   "name": "reactive-observer",
-  "version": "0.0.1",
-  "description": "Reactive observer object for Tracker",
+  "version": "0.0.2",
+  "description": "Reactive observer for Tracker",
   "main": "index.js",
   "scripts": {
   },
@@ -14,9 +14,8 @@
     "url": "https://github.com/eface2face/reactive-observer/issues"
   },
   "homepage": "https://github.com/eface2face/reactive-observer",
-  "devDependencies": {
-  },
   "dependencies": {
-    "debug": "^2.2.0"
+  },
+  "devDependencies": {
   }
 }
