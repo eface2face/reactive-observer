@@ -62,17 +62,17 @@ module.exports = function(Meteor)
 
 					// Unobserve previous root object (if any)
 					if (root)
-						root.removeListener('change', listener);
+						root.emitter.removeListener('change', listener);
 
 					// Check object is observable
-					if (!object.listeners)
-						throw new TypeError('given `object` is not an EventEmitter');
+					if (!object.emitter)
+						throw new TypeError('given `object` is not observable');
 
 					// Set root object
 					root = object;
 
 					// Add listener
-					root.addListener('change', listener);
+					root.emitter.addListener('change', listener);
 
 					// And fire dependency
 					dep.changed();

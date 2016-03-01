@@ -1,6 +1,6 @@
 {
   "name": "reactive-observer",
-  "version": "0.0.2",
+  "version": "0.1.1",
   "description": "Reactive observer for Tracker",
   "main": "index.js",
   "scripts": {
