@@ -1,6 +1,6 @@
 {
   "name": "reactive-observer",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Reactive observer for Tracker",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/eface2face/reactive-observer",
   "dependencies": {
+    "object-observable": "eface2face/object-observable#master"
   },
   "devDependencies": {
   }

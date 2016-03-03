@@ -1,3 +1,5 @@
+var ObjectObservable = require('object-observable');
+
 module.exports = function(Meteor)
 {
 	var Tracker = Meteor.Tracker;
@@ -62,17 +64,17 @@ module.exports = function(Meteor)
 
 					// Unobserve previous root object (if any)
 					if (root)
-						root.emitter.removeListener('change', listener);
+						ObjectObservable.unobserve(root, listener);
 
 					// Check object is observable
-					if (!object.emitter)
+					if (!ObjectObservable.isObservable(object))
 						throw new TypeError('given `object` is not observable');
 
 					// Set root object
 					root = object;
 
 					// Add listener
-					root.emitter.addListener('change', listener);
+					ObjectObservable.observe(root, listener);
 
 					// And fire dependency
 					dep.changed();
