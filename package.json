@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/eface2face/reactive-observer",
   "dependencies": {
-    "object-observable": "^0.2.0"
+    "object-observable": "^1.0.0"
   },
   "devDependencies": {
   }
