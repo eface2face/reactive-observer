@@ -67,14 +67,14 @@ module.exports = function(Meteor)
 						ObjectObservable.unobserve(root, listener);
 
 					// Check object is observable
-					if (!ObjectObservable.isObservable(object))
+					if (object && !ObjectObservable.isObservable(object))
 						throw new TypeError('given `object` is not observable');
 
 					// Set root object
 					root = object;
 
 					// Add listener
-					ObjectObservable.observe(root, listener);
+					root && ObjectObservable.observe(root, listener);
 
 					// And fire dependency
 					dep.changed();
